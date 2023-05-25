@@ -8,25 +8,15 @@
 import UIKit
 
 enum Storyboard: String {
-    case main = "Main"
+	case Main
+
+	var instance: UIStoryboard {
+	  return UIStoryboard(name: rawValue, bundle: Bundle.main)
+	}
 }
 
-protocol Storyboarded {
-    static func instantiate() -> Self
-}
-
-extension Storyboarded where Self: UIViewController {
-    static func instantiate() -> Self {
-
-        let fullName = NSStringFromClass(self)
-
-        let className = fullName.components(separatedBy: ".")[1]
-
-        let mainStoryboard = UIStoryboard(name: Storyboard.main.rawValue, bundle: Bundle.main)
-
-        guard let soryboard = mainStoryboard.instantiateViewController(withIdentifier: className) as? Self else {
-            fatalError()
-        }
-        return soryboard
-    }
+extension UIViewController {
+	class var storyboardID: String {
+		return "\(self)"
+	}
 }

@@ -19,11 +19,13 @@ class MainCoordinator: NSObject, Coordinator {
     func start() {
         navigationController.delegate = self
         let service: ProductService = ProductServiceImpl()
-        let viewModel: ProductListViewModelLogic = ProductListViewModel(apiService: service)
-        let viewController = ProductListViewController.instantiate()
-        viewController.viewModel = viewModel
-        viewController.coordinator = self
-        navigationController.pushViewController(viewController, animated: false)
+		let viewModel: ProductListViewModelLogic = ProductListViewModel(apiService: service)
+		let storyboard = Storyboard.Main.instance
+		let viewController = storyboard.instantiateViewController(identifier: "\(ProductListViewController.self)") { coder in
+			return ProductListViewController(coder: coder, coordinator: self, viewModel: viewModel)
+		}
+
+		navigationController.pushViewController(viewController, animated: false)
     }
 
     func navigateToNewScreen(with data: ProductViewModel) {
