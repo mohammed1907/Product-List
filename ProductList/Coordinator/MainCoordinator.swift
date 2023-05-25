@@ -21,7 +21,7 @@ class MainCoordinator: NSObject, Coordinator {
         let service: ProductService = ProductServiceImpl()
 		let viewModel: ProductListViewModelLogic = ProductListViewModel(apiService: service)
 		let storyboard = Storyboard.Main.instance
-		let viewController = storyboard.instantiateViewController(identifier: "\(ProductListViewController.self)") { coder in
+		let viewController = storyboard.instantiateViewController(identifier: ProductListViewController.storyboardID) { coder in
 			return ProductListViewController(coder: coder, coordinator: self, viewModel: viewModel)
 		}
 

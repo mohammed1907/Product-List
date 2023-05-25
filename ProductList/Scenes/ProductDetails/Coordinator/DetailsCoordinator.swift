@@ -20,7 +20,7 @@ class DetailsCoordinator: Coordinator {
         let viewmodel = ProductDetailsViewModel()
         viewmodel.productInfo = productViewModel
 		let storyboard = Storyboard.Main.instance
-		let viewcontroller = storyboard.instantiateViewController(identifier: "\(ProductDetailsViewController.self)") { coder in
+		let viewcontroller = storyboard.instantiateViewController(identifier: ProductDetailsViewController.storyboardID) { coder in
 			return ProductDetailsViewController(coder: coder, coordinator: self, viewModel: viewmodel)
 		}
         navigationController.pushViewController(viewcontroller, animated: true)
