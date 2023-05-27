@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProductListViewController: UIViewController, Storyboarded {
+final class ProductListViewController: UIViewController {
 
     // MARK: - Outlets
 
@@ -15,11 +15,26 @@ final class ProductListViewController: UIViewController, Storyboarded {
     @IBOutlet weak var listSubTitle: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    // MARK: - Properties
-    private let refreshControl = UIRefreshControl()
-    var viewModel: ProductListViewModelLogic!
-    weak var coordinator: MainCoordinator?
 
+    // MARK: - Properties
+
+    private let refreshControl = UIRefreshControl()
+	private var coordinator: MainCoordinator?
+    private var viewModel: ProductListViewModelLogic!
+
+	required init?(coder: NSCoder, coordinator: MainCoordinator?, viewModel: ProductListViewModelLogic) {
+		self.coordinator = coordinator
+		self.viewModel = viewModel
+		super.init(coder: coder)
+	}
+
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+
+	deinit {
+		print(self)
+	}
 }
 
 // MARK: - Life Cycle

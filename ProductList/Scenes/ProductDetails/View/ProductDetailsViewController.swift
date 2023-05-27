@@ -8,7 +8,7 @@
 import UIKit
 import Cosmos
 import Kingfisher
-final class ProductDetailsViewController: UIViewController, Storyboarded {
+final class ProductDetailsViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var productImage: UIImageView!
@@ -24,9 +24,24 @@ final class ProductDetailsViewController: UIViewController, Storyboarded {
     @IBOutlet weak var productLongDescription: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var releaseDate: UILabel!
+
     // MARK: - Properties
-    var viewModel: ProductDetailsViewModelLogic!
-    weak var coordinator: DetailsCoordinator?
+	private var coordinator: DetailsCoordinator?
+    private var viewModel: ProductDetailsViewModelLogic!
+
+	required init?(coder: NSCoder, coordinator: DetailsCoordinator?, viewModel: ProductDetailsViewModelLogic) {
+		self.coordinator = coordinator
+		self.viewModel = viewModel
+		super.init(coder: coder)
+	}
+
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+
+	deinit {
+		print(self)
+	}
 
 }
 

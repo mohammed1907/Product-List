@@ -170,13 +170,13 @@
 		06D5826E2A1DFC5100935D52 /* ProductList */ = {
 			isa = PBXGroup;
 			children = (
+				06D582A32A1DFF6900935D52 /* App */,
 				06A27C442A1E327300E37849 /* Framework */,
 				06D582C32A1E0CE700935D52 /* Coordinator */,
-				06D582A32A1DFF6900935D52 /* App */,
-				06D582A42A1DFF8900935D52 /* Network */,
 				06D582B12A1E03BD00935D52 /* Models */,
-				06D582C02A1E09DA00935D52 /* Extensions */,
 				06D582B42A1E054B00935D52 /* Scenes */,
+				06D582A42A1DFF8900935D52 /* Network */,
+				06D582C02A1E09DA00935D52 /* Extensions */,
 				06D582752A1DFC5100935D52 /* Main.storyboard */,
 				06D582782A1DFC5200935D52 /* Assets.xcassets */,
 				06D5827A2A1DFC5200935D52 /* LaunchScreen.storyboard */,
@@ -226,8 +226,8 @@
 		06D582B42A1E054B00935D52 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				065782912A1E1DD8005AB37B /* ProductDetails */,
 				06D582B52A1E057000935D52 /* ProductList */,
+				065782912A1E1DD8005AB37B /* ProductDetails */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -407,6 +407,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		06D5829F2A1DFDDB00935D52 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
